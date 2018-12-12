@@ -45,9 +45,21 @@ class App extends Component {
     })
   }
 
+  deleteHandler = (hog) => {
+    console.log("deleting")
+    let newArr = [...this.state.pigs]
+    let remainingHogs = newArr.filter(pig => {
+      return pig !== hog
+    });
+    console.log(remainingHogs)
+    this.setState({
+      pigs: remainingHogs
+    })
+  }
+
   render() {
     let piggies = this.state.pigs.map(pig => {
-      return <Tiles pig={pig}/>
+      return <Tiles pig={pig} deleteHandler={this.deleteHandler}/>
     })
 
     return (

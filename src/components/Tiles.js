@@ -28,6 +28,7 @@ export default class Tiles extends React.Component{
       <div className="pigTile">
         <h1>{this.props.pig.name}</h1>
         <img onClick={this.toggleHidden} src={require(`../hog-imgs/${newImageName}.jpg`)} alt="pig"/>
+        <button onClick={() => this.props.deleteHandler(this.props.pig)}>Delete Pig</button>
         {!this.state.isHidden && <Piginfo />}
       </div>
     )
